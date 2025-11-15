@@ -30,5 +30,6 @@ int main(int argc, char *argv[]){
 	assert ( pthread_join(t1, (void **) &rvals) == 0 );
 	printf("returned: %d %d\n", rvals->x, rvals->y);
 	
+	free(rvals);
 	return 0;
 }
