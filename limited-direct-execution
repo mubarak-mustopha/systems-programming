@@ -1,0 +1,37 @@
+Virtualization of CPU: Illusion of inifinitely many CPU's available 
+to run multiple jobs at the same time.
+How to virtualize the CPU??  Time sharing!!
+Challenges:
+	1. Performance
+	2. Control
+Run programs directly on CPU (Performance):
+	1. How does OS ensure it doesn't perform illegal
+	   actions?
+	2. How does OS stop a process to give CPU to another??
+	   Thereby achieving virtualization.
+Restricted operations (Control):
+	* How do programs perform restricted operations (they need to
+	  e.g I/O)
+	  without taking control over the system?
+
+Hardware support for restricted operations
+	1. Dual mode of operation (user and kernel mode)
+	2. Instructions to trap into kernel from user mode
+	   and vice versae (system calls)
+	3. Instructions to inform hardware where trap table is
+	   located in kernel memory
+	   
+Sys calls allow kernel to carefully expose certain key pieces of
+functionalities to user programs e.g
+	* accessing file system
+	* creating/destroying processes
+	* communicating with other processes
+	* allocating more memory
+	
+A user program makes sys call by executing a `trap` instruction
+which a. jumps into kernel
+      b. raises privilege level to kernel mode.
+Kernel executes return-from-trap instruction and the reverse of the
+above will occur
+
+
